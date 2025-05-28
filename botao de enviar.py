@@ -7,11 +7,11 @@ import tkinter as tk
 def enviar_mensagem():
     try:
         client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        client_socket.connect(('172.16.222.76', 13579))
+        client_socket.connect(('172.19.200.1', 13579))
         
         hostname = socket.gethostname()
         usuario_windows = getpass.getuser()
-        mensagem = f"{hostname}|codigo violeta!|teste"
+        mensagem = f"{hostname}|codigo violeta!|{usuario_windows}"
         client_socket.send(mensagem.encode('utf-8'))
         print(f"Mensagem enviada: {mensagem}")
         

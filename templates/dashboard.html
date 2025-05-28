@@ -1,0 +1,287 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Administração Botão de Pânico{% endblock %}
+{% block page_title %}Dashboard{% endblock %}
+
+{% block content %}
+<!-- Estatísticas principais -->
+<div class="row mb-4">
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card stat-card">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-uppercase mb-1">Total de Salas</div>
+                        <div class="h5 mb-0 font-weight-bold">{{ total_salas }}</div>
+                        <small>{{ salas_ativas }} ativas</small>
+                    </div>
+                    <div class="col-auto">
+                        <i class="bi bi-building fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card stat-card-success">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-uppercase mb-1">Clientes Mestres</div>
+                        <div class="h5 mb-0 font-weight-bold">{{ total_clientes }}</div>
+                        <small>{{ clientes_ativos }} ativos</small>
+                    </div>
+                    <div class="col-auto">
+                        <i class="bi bi-pc-display fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card stat-card-warning">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-uppercase mb-1">Alertas (24h)</div>
+                        <div class="h5 mb-0 font-weight-bold">{{ logs_recentes }}</div>
+                        <small>Últimas 24 horas</small>
+                    </div>
+                    <div class="col-auto">
+                        <i class="bi bi-exclamation-triangle fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card stat-card-info">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-uppercase mb-1">Alertas vs Testes</div>
+                        <div class="h5 mb-0 font-weight-bold">{{ alertas_reais }}/{{ testes }}</div>
+                        <small>Últimos 7 dias</small>
+                    </div>
+                    <div class="col-auto">
+                        <i class="bi bi-graph-up fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Gráficos e informações -->
+<div class="row mb-4">
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="bi bi-bar-chart"></i>
+                    Alertas vs Testes (Últimos 7 dias)
+                </h5>
+            </div>
+            <div class="card-body">
+                <canvas id="alertasChart" width="400" height="200"></canvas>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="bi bi-activity"></i>
+                    Status dos Clientes
+                </h5>
+            </div>
+            <div class="card-body">
+                {% if clientes_com_ping %}
+                    {% for cliente in clientes_com_ping %}
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <div>
+                                <strong>{{ cliente.hostname }}</strong>
+                                {% if cliente.nome %}
+                                    <br><small class="text-muted">{{ cliente.nome }}</small>
+                                {% endif %}
+                            </div>
+                            <div class="text-end">
+                                {% if cliente.ultimo_ping %}
+                                    {% set diff = (moment().utcnow() - cliente.ultimo_ping).total_seconds() %}
+                                    {% if diff < 300 %}
+                                        <span class="badge bg-success">Online</span>
+                                        <br><small class="text-muted">{{ cliente.ultimo_ping.strftime('%H:%M') }}</small>
+                                    {% elif diff < 3600 %}
+                                        <span class="badge bg-warning">Inativo</span>
+                                        <br><small class="text-muted">{{ cliente.ultimo_ping.strftime('%H:%M') }}</small>
+                                    {% else %}
+                                        <span class="badge bg-danger">Offline</span>
+                                        <br><small class="text-muted">{{ cliente.ultimo_ping.strftime('%d/%m %H:%M') }}</small>
+                                    {% endif %}
+                                {% else %}
+                                    <span class="badge bg-secondary">Nunca conectou</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% if not loop.last %}<hr>{% endif %}
+                    {% endfor %}
+                {% else %}
+                    <p class="text-muted text-center">Nenhum cliente mestre registrado</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Logs recentes -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="card-title mb-0">
+                    <i class="bi bi-journal-text"></i>
+                    Logs Recentes
+                </h5>
+                <a href="{{ url_for('listar_logs') }}" class="btn btn-sm btn-outline-primary btn-custom">
+                    Ver todos os logs
+                </a>
+            </div>
+            <div class="card-body">
+                {% if logs_recentes_lista %}
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Data/Hora</th>
+                                    <th>Sala</th>
+                                    <th>Usuário</th>
+                                    <th>Tipo</th>
+                                    <th>Hostname</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for log in logs_recentes_lista %}
+                                <tr>
+                                    <td>
+                                        <small>{{ log.timestamp.strftime('%d/%m/%Y %H:%M:%S') }}</small>
+                                    </td>
+                                    <td>
+                                        <strong>{{ log.sala }}</strong>
+                                    </td>
+                                    <td>{{ log.usuario_windows }}</td>
+                                    <td>
+                                        {% if log.tipo_alerta == 'teste' %}
+                                            <span class="badge bg-info">Teste</span>
+                                        {% else %}
+                                            <span class="badge bg-danger">Alerta</span>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        <small class="text-muted">{{ log.hostname }}</small>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% else %}
+                    <p class="text-muted text-center">Nenhum log encontrado</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Ações rápidas -->
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="bi bi-lightning"></i>
+                    Ações Rápidas
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3 mb-2">
+                        <a href="{{ url_for('nova_sala') }}" class="btn btn-primary btn-custom w-100">
+                            <i class="bi bi-plus-circle"></i>
+                            Nova Sala
+                        </a>
+                    </div>
+                    <div class="col-md-3 mb-2">
+                        <a href="{{ url_for('novo_cliente') }}" class="btn btn-success btn-custom w-100">
+                            <i class="bi bi-plus-circle"></i>
+                            Novo Cliente
+                        </a>
+                    </div>
+                    <div class="col-md-3 mb-2">
+                        <a href="{{ url_for('listar_logs') }}" class="btn btn-info btn-custom w-100">
+                            <i class="bi bi-search"></i>
+                            Buscar Logs
+                        </a>
+                    </div>
+                    <div class="col-md-3 mb-2">
+                        <a href="{{ url_for('api_status') }}" target="_blank" class="btn btn-warning btn-custom w-100">
+                            <i class="bi bi-gear"></i>
+                            Status API
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Gráfico de Alertas vs Testes
+    const ctx = document.getElementById('alertasChart').getContext('2d');
+    const alertasChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Alertas Reais', 'Testes'],
+            datasets: [{
+                data: [{{ alertas_reais }}, {{ testes }}],
+                backgroundColor: [
+                    '#dc3545',
+                    '#17a2b8'
+                ],
+                borderWidth: 0
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                }
+            }
+        }
+    });
+    
+    // Atualizar status em tempo real
+    function atualizarStatus() {
+        fetch('{{ url_for("api_status") }}')
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'ok') {
+                    console.log('Status atualizado:', data.timestamp);
+                }
+            })
+            .catch(error => {
+                console.error('Erro ao atualizar status:', error);
+            });
+    }
+    
+    // Atualizar a cada 30 segundos
+    setInterval(atualizarStatus, 30000);
+</script>
+{% endblock %} 

@@ -1,0 +1,174 @@
+{% extends "base.html" %}
+
+{% block title %}Salas - Administração Botão de Pânico{% endblock %}
+{% block page_title %}Gerenciar Salas{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h4>Lista de Salas</h4>
+        <p class="text-muted">Gerencie as salas cadastradas no sistema</p>
+    </div>
+    <a href="{{ url_for('nova_sala') }}" class="btn btn-primary btn-custom">
+        <i class="fa-solid fa-plus-circle"></i>
+        Nova Sala
+    </a>
+</div>
+
+<!-- Filtros -->
+<div class="card mb-4">
+    <div class="card-body">
+        <form method="GET" class="row g-3">
+            <div class="col-md-8">
+                <label for="search" class="form-label">Buscar</label>
+                <input type="text" class="form-control" id="search" name="search" 
+                       value="{{ search }}" placeholder="Hostname ou nome da sala...">
+            </div>
+            <div class="col-md-4 d-flex align-items-end">
+                <button type="submit" class="btn btn-outline-primary me-2">
+                    <i class="fa-solid fa-search"></i> Buscar
+                </button>
+                <a href="{{ url_for('salas') }}" class="btn btn-outline-secondary">
+                    <i class="fa-solid fa-xmark"></i> Limpar
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Lista de salas -->
+<div class="card">
+    <div class="card-body">
+        {% if salas.items %}
+            <div class="table-responsive">
+                <table class="table table-hover table-striped">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Hostname</th>
+                            <th>Nome</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for sala in salas.items %}
+                        <tr>
+                            <td>{{ sala.hostname }}</td>
+                            <td>{{ sala.nome_sala }}</td>
+                            <td>
+                                {% if sala.ativo %}
+                                <span class="badge bg-success">Ativo</span>
+                                {% else %}
+                                <span class="badge bg-danger">Inativo</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <a href="{{ url_for('editar_sala', id=sala.id) }}" class="btn btn-sm btn-outline-primary">
+                                    <i class="fa-solid fa-pen"></i> Editar
+                                </a>
+                                <button type="button" class="btn btn-sm btn-outline-danger" 
+                                        onclick="confirmarExclusao({{ sala.id }}, '{{ sala.nome_sala }}')">
+                                    <i class="fa-solid fa-trash"></i> Excluir
+                                </button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Paginação -->
+            <nav aria-label="Navegação de páginas">
+                <ul class="pagination justify-content-center">
+                    {% if salas.has_prev %}
+                    <li class="page-item">
+                        <a class="page-link" href="{{ url_for('salas', page=salas.prev_num) }}">Anterior</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item disabled">
+                        <span class="page-link">Anterior</span>
+                    </li>
+                    {% endif %}
+
+                    {% for page_num in salas.iter_pages(left_edge=1, right_edge=1, left_current=2, right_current=2) %}
+                    {% if page_num %}
+                    <li class="page-item {{ 'active' if page_num == salas.page else '' }}">
+                        <a class="page-link" href="{{ url_for('salas', page=page_num) }}">{{ page_num }}</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item disabled">
+                        <span class="page-link">...</span>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+
+                    {% if salas.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="{{ url_for('salas', page=salas.next_num) }}">Próxima</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item disabled">
+                        <span class="page-link">Próxima</span>
+                    </li>
+                    {% endif %}
+                </ul>
+            </nav>
+
+            <div class="text-muted text-center mt-3">
+                Mostrando {{ salas.items|length }} de {{ salas.total }} salas
+            </div>
+        {% else %}
+            <div class="text-center py-5">
+                <i class="fa-solid fa-building text-muted" style="font-size: 3rem;"></i>
+                <h5 class="text-muted mt-3">Nenhuma sala encontrada</h5>
+                {% if search %}
+                    <p class="text-muted">Tente ajustar os filtros de busca</p>
+                    <a href="{{ url_for('salas') }}" class="btn btn-outline-primary">
+                        Ver todas as salas
+                    </a>
+                {% else %}
+                    <p class="text-muted">Comece adicionando uma nova sala</p>
+                    <a href="{{ url_for('nova_sala') }}" class="btn btn-primary">
+                        <i class="fa-solid fa-plus"></i>
+                        Adicionar Primeira Sala
+                    </a>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Modal de confirmação de deleção -->
+<div class="modal fade" id="deleteModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirmar Deleção</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>Tem certeza que deseja deletar a sala <strong id="salaNome"></strong>?</p>
+                <p class="text-muted">Esta ação não pode ser desfeita. Se houver logs associados, a sala será apenas desativada.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <form id="deleteForm" method="POST" style="display: inline;">
+                    <button type="submit" class="btn btn-danger">Deletar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function confirmarDelecao(salaId, salaNome) {
+    document.getElementById('salaNome').textContent = salaNome;
+    document.getElementById('deleteForm').action = `/salas/${salaId}/deletar`;
+    
+    const modal = new bootstrap.Modal(document.getElementById('deleteModal'));
+    modal.show();
+}
+</script>
+{% endblock %} 

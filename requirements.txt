@@ -1,0 +1,14 @@
+flask==2.3.3
+flask-sqlalchemy==3.0.5
+mysql-connector-python==8.1.0
+pymysql==1.1.0
+pygame==2.5.2
+websockets==11.0.3
+asyncio-mqtt==0.13.0
+python-dotenv==1.0.0
+cryptography==41.0.4
+bcrypt==4.0.1
+flask-wtf==1.1.1
+wtforms==3.0.1
+flask-login==0.6.3
+requests==2.31.0 

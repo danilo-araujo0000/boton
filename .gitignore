@@ -12,3 +12,6 @@
 ./*.pyd
 /botao-do-panico/
 /botao-do-panico/*
+./lixo/
+/lixo/*
+/lixo/.gitkeep

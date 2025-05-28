@@ -1,0 +1,257 @@
+2025-05-28 12:23:12,578 - __main__ - INFO - Iniciando Servidor do Botão de Pânico...
+2025-05-28 12:23:12,657 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-05-28 12:23:12,659 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-05-28 12:23:12,661 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-05-28 12:23:12,690 - database.database_manager - INFO - Banco de dados dbinit criado/verificado com sucesso
+2025-05-28 12:23:15,318 - __main__ - INFO - Tabelas do banco de dados criadas/verificadas
+2025-05-28 12:23:15,327 - __main__ - INFO - Iniciando migração dos dados dos arquivos txt...
+2025-05-28 12:23:15,600 - database.database_manager - INFO - Migração de 102 salas concluída
+2025-05-28 12:23:15,668 - database.database_manager - INFO - Migração de 4 clientes mestres concluída
+2025-05-28 12:23:16,495 - database.database_manager - INFO - Migração de 251 logs concluída
+2025-05-28 12:23:16,496 - database.database_manager - INFO - Migração dos dados concluída com sucesso
+2025-05-28 12:23:16,501 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 12:23:16,502 - __main__ - ERROR - Erro crítico no servidor: [WinError 10049] O endereço solicitado não é válido no contexto
+2025-05-28 12:23:16,503 - __main__ - INFO - Iniciando shutdown do servidor...
+2025-05-28 12:23:16,504 - __main__ - INFO - Shutdown concluído
+2025-05-28 12:23:16,505 - __main__ - INFO - Iniciando shutdown do servidor...
+2025-05-28 12:23:16,506 - __main__ - INFO - Shutdown concluído
+2025-05-28 12:36:27,847 - __main__ - INFO - Iniciando Servidor do Botão de Pânico...
+2025-05-28 12:36:27,969 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-05-28 12:36:27,971 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-05-28 12:36:27,972 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-05-28 12:36:28,022 - database.database_manager - INFO - Banco de dados dbinit criado/verificado com sucesso
+2025-05-28 12:36:28,042 - __main__ - INFO - Tabelas do banco de dados criadas/verificadas
+2025-05-28 12:36:28,056 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 12:36:28,065 - __main__ - INFO - Servidor iniciado em localhost:13579
+2025-05-28 12:36:28,881 - __main__ - INFO - Nova conexão de ('127.0.0.1', 39477)
+2025-05-28 12:36:28,882 - __main__ - INFO - Mensagem recebida de ('127.0.0.1', 39477): amevotsti013
+2025-05-28 12:36:28,883 - __main__ - INFO - Cliente mestre conectado: amevotsti013
+2025-05-28 12:36:33,881 - __main__ - INFO - Nova conexão de ('127.0.0.1', 39482)
+2025-05-28 12:36:33,882 - __main__ - INFO - Mensagem recebida de ('127.0.0.1', 39482): amevotsti013
+2025-05-28 12:36:33,884 - __main__ - INFO - Cliente mestre conectado: amevotsti013
+2025-05-28 12:36:56,732 - __main__ - INFO - Nova conexão de ('127.0.0.1', 39515)
+2025-05-28 12:36:56,734 - __main__ - INFO - Mensagem recebida de ('127.0.0.1', 39515): amevotsti013|codigo violeta!|teste
+2025-05-28 12:36:56,741 - database.database_manager - INFO - Log salvo: amevotsti013 - T.I --- Danilo - teste
+2025-05-28 12:36:56,742 - __main__ - INFO - Alerta processado: amevotsti013 - T.I --- Danilo - teste
+2025-05-28 12:36:56,743 - __main__ - INFO - Comando enviado para cliente mestre amevotsti013
+2025-05-28 12:37:04,002 - __main__ - INFO - Nova conexão de ('127.0.0.1', 39529)
+2025-05-28 12:37:04,004 - __main__ - INFO - Mensagem recebida de ('127.0.0.1', 39529): amevotsti013
+2025-05-28 12:37:04,005 - __main__ - INFO - Cliente mestre conectado: amevotsti013
+2025-05-28 12:37:29,078 - __main__ - INFO - Cliente mestre amevotsti013 desconectado: [WinError 10053] Uma conexão estabelecida foi anulada pelo software no computador host
+2025-05-28 12:37:33,979 - __main__ - INFO - Cliente mestre amevotsti013 desconectado: [WinError 10054] Foi forçado o cancelamento de uma conexão existente pelo host remoto
+2025-05-28 12:37:39,027 - __main__ - INFO - Nova conexão de ('127.0.0.1', 39566)
+2025-05-28 12:37:39,037 - __main__ - INFO - Mensagem recebida de ('127.0.0.1', 39566): amevotsti013
+2025-05-28 12:37:39,039 - __main__ - INFO - Cliente mestre conectado: amevotsti013
+2025-05-28 12:37:43,708 - __main__ - INFO - Nova conexão de ('127.0.0.1', 39569)
+2025-05-28 12:37:43,713 - __main__ - INFO - Mensagem recebida de ('127.0.0.1', 39569): amevotsti013|codigo violeta!|teste
+2025-05-28 12:37:43,719 - database.database_manager - INFO - Log salvo: amevotsti013 - T.I --- Danilo - teste
+2025-05-28 12:37:43,722 - __main__ - INFO - Alerta processado: amevotsti013 - T.I --- Danilo - teste
+2025-05-28 12:37:43,723 - __main__ - INFO - Comando enviado para cliente mestre amevotsti013
+2025-05-28 12:37:51,968 - __main__ - INFO - Nova conexão de ('127.0.0.1', 39574)
+2025-05-28 12:37:51,971 - __main__ - INFO - Mensagem recebida de ('127.0.0.1', 39574): amevotsti013|codigo violeta!|teste
+2025-05-28 12:37:51,976 - database.database_manager - INFO - Log salvo: amevotsti013 - T.I --- Danilo - teste
+2025-05-28 12:37:51,978 - __main__ - INFO - Alerta processado: amevotsti013 - T.I --- Danilo - teste
+2025-05-28 12:37:51,979 - __main__ - INFO - Comando enviado para cliente mestre amevotsti013
+2025-05-28 12:38:04,084 - __main__ - INFO - Cliente mestre amevotsti013 desconectado: [WinError 10053] Uma conexão estabelecida foi anulada pelo software no computador host
+2025-05-28 12:38:25,639 - __main__ - INFO - Nova conexão de ('127.0.0.1', 39627)
+2025-05-28 12:38:25,641 - __main__ - INFO - Mensagem recebida de ('127.0.0.1', 39627): amevotsti013|codigo violeta!|DBISPO
+2025-05-28 12:38:25,714 - database.database_manager - INFO - Log salvo: amevotsti013 - T.I --- Danilo - DBISPO
+2025-05-28 12:38:25,719 - __main__ - INFO - Alerta processado: amevotsti013 - T.I --- Danilo - DBISPO
+2025-05-28 12:38:44,118 - __main__ - INFO - Nova conexão de ('127.0.0.1', 39642)
+2025-05-28 12:38:44,127 - __main__ - INFO - Mensagem recebida de ('127.0.0.1', 39642): amevotsti013
+2025-05-28 12:38:44,129 - __main__ - INFO - Cliente mestre conectado: amevotsti013
+2025-05-28 12:39:03,038 - __main__ - INFO - Nova conexão de ('127.0.0.1', 39650)
+2025-05-28 12:39:03,039 - __main__ - INFO - Mensagem recebida de ('127.0.0.1', 39650): amevotsti013|codigo violeta!|DBISPO
+2025-05-28 12:39:03,107 - database.database_manager - INFO - Log salvo: amevotsti013 - T.I --- Danilo - DBISPO
+2025-05-28 12:39:03,109 - __main__ - INFO - Alerta processado: amevotsti013 - T.I --- Danilo - DBISPO
+2025-05-28 12:39:03,110 - __main__ - INFO - Comando enviado para cliente mestre amevotsti013
+2025-05-28 12:39:09,233 - __main__ - INFO - Cliente mestre amevotsti013 desconectado: [WinError 10053] Uma conexão estabelecida foi anulada pelo software no computador host
+2025-05-28 12:39:49,242 - __main__ - INFO - Nova conexão de ('127.0.0.1', 39711)
+2025-05-28 12:39:49,246 - __main__ - INFO - Mensagem recebida de ('127.0.0.1', 39711): amevotsti013
+2025-05-28 12:39:49,248 - __main__ - INFO - Cliente mestre conectado: amevotsti013
+2025-05-28 12:40:14,238 - __main__ - INFO - Cliente mestre amevotsti013 desconectado: [WinError 10053] Uma conexão estabelecida foi anulada pelo software no computador host
+2025-05-28 12:40:24,334 - __main__ - INFO - Nova conexão de ('127.0.0.1', 39762)
+2025-05-28 12:40:24,335 - __main__ - INFO - Mensagem recebida de ('127.0.0.1', 39762): amevotsti013
+2025-05-28 12:40:24,336 - __main__ - INFO - Cliente mestre conectado: amevotsti013
+2025-05-28 12:40:49,442 - __main__ - INFO - Cliente mestre amevotsti013 desconectado: [WinError 10053] Uma conexão estabelecida foi anulada pelo software no computador host
+2025-05-28 12:40:59,362 - __main__ - INFO - Nova conexão de ('127.0.0.1', 39796)
+2025-05-28 12:40:59,363 - __main__ - INFO - Mensagem recebida de ('127.0.0.1', 39796): amevotsti013
+2025-05-28 12:40:59,364 - __main__ - INFO - Cliente mestre conectado: amevotsti013
+2025-05-28 12:41:24,432 - __main__ - INFO - Cliente mestre amevotsti013 desconectado: [WinError 10053] Uma conexão estabelecida foi anulada pelo software no computador host
+2025-05-28 12:41:28,081 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 12:41:34,410 - __main__ - INFO - Nova conexão de ('127.0.0.1', 39864)
+2025-05-28 12:41:34,413 - __main__ - INFO - Mensagem recebida de ('127.0.0.1', 39864): amevotsti013
+2025-05-28 12:41:34,414 - __main__ - INFO - Cliente mestre conectado: amevotsti013
+2025-05-28 12:41:59,435 - __main__ - INFO - Cliente mestre amevotsti013 desconectado: [WinError 10053] Uma conexão estabelecida foi anulada pelo software no computador host
+2025-05-28 12:42:09,787 - __main__ - INFO - Nova conexão de ('127.0.0.1', 39910)
+2025-05-28 12:42:09,788 - __main__ - INFO - Mensagem recebida de ('127.0.0.1', 39910): amevotsti013
+2025-05-28 12:42:09,789 - __main__ - INFO - Cliente mestre conectado: amevotsti013
+2025-05-28 12:42:34,431 - __main__ - INFO - Cliente mestre amevotsti013 desconectado: [WinError 10054] Foi forçado o cancelamento de uma conexão existente pelo host remoto
+2025-05-28 12:42:44,878 - __main__ - INFO - Nova conexão de ('127.0.0.1', 39944)
+2025-05-28 12:42:44,879 - __main__ - INFO - Mensagem recebida de ('127.0.0.1', 39944): amevotsti013
+2025-05-28 12:42:44,880 - __main__ - INFO - Cliente mestre conectado: amevotsti013
+2025-05-28 12:43:10,047 - __main__ - INFO - Cliente mestre amevotsti013 desconectado: [WinError 10053] Uma conexão estabelecida foi anulada pelo software no computador host
+2025-05-28 12:43:12,093 - __main__ - INFO - Recebido sinal 2. Iniciando shutdown gracioso...
+2025-05-28 12:43:12,096 - __main__ - INFO - Iniciando shutdown do servidor...
+2025-05-28 12:43:15,011 - __main__ - INFO - Recebido sinal 2. Iniciando shutdown gracioso...
+2025-05-28 12:43:15,013 - __main__ - INFO - Iniciando shutdown do servidor...
+2025-05-28 12:43:15,017 - __main__ - INFO - Shutdown concluído
+2025-05-28 12:43:15,019 - __main__ - INFO - Iniciando shutdown do servidor...
+2025-05-28 12:43:15,020 - __main__ - INFO - Shutdown concluído
+2025-05-28 12:43:15,021 - __main__ - INFO - Iniciando shutdown do servidor...
+2025-05-28 12:43:15,022 - __main__ - INFO - Shutdown concluído
+2025-05-28 12:43:18,696 - __main__ - INFO - Iniciando Servidor do Botão de Pânico...
+2025-05-28 12:43:18,758 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-05-28 12:43:18,760 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-05-28 12:43:18,762 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-05-28 12:43:18,845 - database.database_manager - INFO - Banco de dados dbinit criado/verificado com sucesso
+2025-05-28 12:43:18,854 - __main__ - INFO - Tabelas do banco de dados criadas/verificadas
+2025-05-28 12:43:18,882 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 12:43:18,886 - __main__ - INFO - Servidor iniciado em 172.19.200.1:13579
+2025-05-28 12:43:23,570 - __main__ - INFO - Nova conexão de ('172.19.200.1', 40001)
+2025-05-28 12:43:23,571 - __main__ - INFO - Mensagem recebida de ('172.19.200.1', 40001): Backup|codigo violeta!|Administrator
+2025-05-28 12:43:23,709 - database.database_manager - INFO - Log salvo: Backup - sala de Backup - Administrator
+2025-05-28 12:43:23,715 - __main__ - INFO - Alerta processado: Backup - sala de Backup - Administrator
+2025-05-28 12:43:58,123 - __main__ - INFO - Nova conexão de ('172.19.200.1', 40039)
+2025-05-28 12:43:58,124 - __main__ - INFO - Mensagem recebida de ('172.19.200.1', 40039): amevotsti013
+2025-05-28 12:43:58,125 - __main__ - INFO - Cliente mestre conectado: amevotsti013
+2025-05-28 12:44:04,102 - __main__ - INFO - Nova conexão de ('172.19.200.1', 40051)
+2025-05-28 12:44:04,103 - __main__ - INFO - Mensagem recebida de ('172.19.200.1', 40051): Backup|codigo violeta!|Administrator
+2025-05-28 12:44:04,107 - database.database_manager - INFO - Log salvo: Backup - sala de Backup - Administrator
+2025-05-28 12:44:04,109 - __main__ - INFO - Alerta processado: Backup - sala de Backup - Administrator
+2025-05-28 12:44:04,121 - __main__ - INFO - Comando enviado para cliente mestre amevotsti013
+2025-05-28 12:44:12,668 - __main__ - INFO - Nova conexão de ('172.19.200.1', 40062)
+2025-05-28 12:44:12,669 - __main__ - INFO - Mensagem recebida de ('172.19.200.1', 40062): Backup|codigo violeta!|Administrator
+2025-05-28 12:44:12,674 - database.database_manager - INFO - Log salvo: Backup - sala de Backup - Administrator
+2025-05-28 12:44:12,675 - __main__ - INFO - Alerta processado: Backup - sala de Backup - Administrator
+2025-05-28 12:44:12,676 - __main__ - INFO - Comando enviado para cliente mestre amevotsti013
+2025-05-28 12:44:25,689 - __main__ - INFO - Nova conexão de ('172.19.200.1', 40074)
+2025-05-28 12:44:25,690 - __main__ - INFO - Mensagem recebida de ('172.19.200.1', 40074): Backup|codigo violeta!|Administrator
+2025-05-28 12:44:25,701 - database.database_manager - INFO - Log salvo: Backup - sala de Backup - Administrator
+2025-05-28 12:44:25,703 - __main__ - INFO - Alerta processado: Backup - sala de Backup - Administrator
+2025-05-28 12:44:25,704 - __main__ - ERROR - Erro ao enviar comando para amevotsti013: [WinError 10053] Uma conexão estabelecida foi anulada pelo software no computador host
+2025-05-28 12:44:25,705 - __main__ - INFO - Cliente mestre amevotsti013 removido (desconectado)
+2025-05-28 12:44:28,272 - __main__ - INFO - Cliente mestre amevotsti013 desconectado: [WinError 10053] Uma conexão estabelecida foi anulada pelo software no computador host
+2025-05-28 12:44:30,247 - __main__ - INFO - Nova conexão de ('172.19.200.1', 40080)
+2025-05-28 12:44:30,248 - __main__ - INFO - Mensagem recebida de ('172.19.200.1', 40080): Backup|codigo violeta!|Administrator
+2025-05-28 12:44:30,320 - database.database_manager - INFO - Log salvo: Backup - sala de Backup - Administrator
+2025-05-28 12:44:30,321 - __main__ - INFO - Alerta processado: Backup - sala de Backup - Administrator
+2025-05-28 12:44:40,317 - __main__ - INFO - Nova conexão de ('172.19.200.1', 40090)
+2025-05-28 12:44:40,318 - __main__ - INFO - Mensagem recebida de ('172.19.200.1', 40090): Backup|codigo violeta!|Administrator
+2025-05-28 12:44:40,323 - database.database_manager - INFO - Log salvo: Backup - sala de Backup - Administrator
+2025-05-28 12:44:40,324 - __main__ - INFO - Alerta processado: Backup - sala de Backup - Administrator
+2025-05-28 12:45:04,040 - __main__ - INFO - Nova conexão de ('172.19.200.1', 40119)
+2025-05-28 12:45:04,041 - __main__ - INFO - Mensagem recebida de ('172.19.200.1', 40119): Backup|codigo violeta!|Administrator
+2025-05-28 12:45:04,046 - database.database_manager - INFO - Log salvo: Backup - sala de Backup - Administrator
+2025-05-28 12:45:04,048 - __main__ - INFO - Alerta processado: Backup - sala de Backup - Administrator
+2025-05-28 12:48:18,902 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 12:53:18,920 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 12:58:18,936 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 13:03:18,952 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 13:08:18,970 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 13:10:34,007 - __main__ - INFO - Nova conexão de ('172.19.200.1', 41946)
+2025-05-28 13:10:34,008 - __main__ - INFO - Mensagem recebida de ('172.19.200.1', 41946): Backup|codigo violeta!|Administrator
+2025-05-28 13:10:34,093 - database.database_manager - INFO - Log salvo: Backup - sala de Backup - Administrator
+2025-05-28 13:10:34,095 - __main__ - INFO - Alerta processado: Backup - sala de Backup - Administrator
+2025-05-28 13:10:45,453 - __main__ - INFO - Nova conexão de ('172.19.200.1', 41961)
+2025-05-28 13:10:45,455 - __main__ - INFO - Mensagem recebida de ('172.19.200.1', 41961): amevotsti013
+2025-05-28 13:10:45,456 - __main__ - INFO - Cliente mestre conectado: amevotsti013
+2025-05-28 13:10:49,290 - __main__ - INFO - Nova conexão de ('172.19.200.1', 41968)
+2025-05-28 13:10:49,291 - __main__ - INFO - Mensagem recebida de ('172.19.200.1', 41968): Backup|codigo violeta!|Administrator
+2025-05-28 13:10:49,365 - database.database_manager - INFO - Log salvo: Backup - sala de Backup - Administrator
+2025-05-28 13:10:49,369 - __main__ - INFO - Alerta processado: Backup - sala de Backup - Administrator
+2025-05-28 13:10:49,371 - __main__ - INFO - Comando enviado para cliente mestre amevotsti013
+2025-05-28 13:11:45,692 - __main__ - INFO - Cliente mestre amevotsti013 desconectado: [WinError 10053] Uma conexão estabelecida foi anulada pelo software no computador host
+2025-05-28 13:13:18,990 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 13:18:19,005 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 13:20:21,276 - __main__ - INFO - Nova conexão de ('172.19.200.1', 42931)
+2025-05-28 13:20:21,278 - __main__ - INFO - Mensagem recebida de ('172.19.200.1', 42931): amevotsti013
+2025-05-28 13:20:21,279 - __main__ - INFO - Cliente mestre conectado: amevotsti013
+2025-05-28 13:23:19,021 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 13:28:19,108 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 13:35:07,127 - __main__ - INFO - Iniciando Servidor do Botão de Pânico...
+2025-05-28 13:35:07,199 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-05-28 13:35:07,201 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-05-28 13:35:07,203 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-05-28 13:35:07,207 - database.database_manager - INFO - Banco de dados dbinit criado/verificado com sucesso
+2025-05-28 13:35:07,289 - __main__ - INFO - Tabelas do banco de dados criadas/verificadas
+2025-05-28 13:35:07,306 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 13:35:07,308 - __main__ - INFO - Servidor iniciado em 172.19.200.1:13579
+2025-05-28 13:38:01,895 - __main__ - INFO - Nova conexão de ('172.19.200.1', 44554)
+2025-05-28 13:38:01,898 - __main__ - INFO - Mensagem recebida de ('172.19.200.1', 44554): amevotsti013
+2025-05-28 13:38:01,899 - __main__ - INFO - Cliente mestre conectado: amevotsti013
+2025-05-28 13:40:07,323 - __main__ - INFO - Cache atualizado: 102 salas, 5 clientes mestres
+2025-05-28 13:45:07,342 - __main__ - INFO - Cache atualizado: 102 salas, 5 clientes mestres
+2025-05-28 13:50:07,359 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 13:55:07,380 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 14:00:07,397 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 14:05:07,415 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 14:10:07,434 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 14:15:07,449 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 14:20:07,468 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 14:25:07,484 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 14:30:07,499 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 14:35:07,516 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 14:40:07,533 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 14:45:07,548 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 14:50:07,564 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 14:55:07,583 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 15:00:07,598 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 15:05:07,638 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 15:10:07,655 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 15:15:07,672 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 15:20:07,691 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 15:25:07,708 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 15:30:07,726 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 15:35:07,921 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 15:40:07,937 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 15:45:08,036 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 15:50:08,052 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 15:55:08,068 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 15:56:13,661 - __main__ - INFO - Nova conexão de ('172.19.200.1', 53786)
+2025-05-28 15:56:13,739 - __main__ - INFO - Mensagem recebida de ('172.19.200.1', 53786): amevotsti013
+2025-05-28 15:56:13,740 - __main__ - INFO - Cliente mestre conectado: amevotsti013
+2025-05-28 15:57:08,785 - __main__ - INFO - Iniciando Servidor do Botão de Pânico...
+2025-05-28 15:57:08,843 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-05-28 15:57:08,844 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-05-28 15:57:08,846 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-05-28 15:57:09,008 - database.database_manager - INFO - Banco de dados dbinit criado/verificado com sucesso
+2025-05-28 15:57:09,045 - __main__ - INFO - Tabelas do banco de dados criadas/verificadas
+2025-05-28 15:57:09,046 - __main__ - ERROR - Erro ao inicializar banco de dados: 'ServidorBotaoPanico' object has no attribute '_precisa_migracao'
+2025-05-28 15:57:09,047 - __main__ - ERROR - Falha ao inicializar banco de dados. Encerrando...
+2025-05-28 15:57:27,794 - __main__ - INFO - Iniciando Servidor do Botão de Pânico...
+2025-05-28 15:57:27,851 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-05-28 15:57:27,853 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-05-28 15:57:27,855 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-05-28 15:57:27,859 - database.database_manager - INFO - Banco de dados dbinit criado/verificado com sucesso
+2025-05-28 15:57:27,869 - __main__ - INFO - Tabelas do banco de dados criadas/verificadas
+2025-05-28 15:57:27,882 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 15:57:27,884 - __main__ - INFO - Servidor iniciado em 172.19.200.1:13579
+2025-05-28 15:57:29,651 - __main__ - INFO - Nova conexão de ('172.19.200.1', 53887)
+2025-05-28 15:57:29,652 - __main__ - INFO - Mensagem recebida de ('172.19.200.1', 53887): amevotsti013
+2025-05-28 15:57:29,653 - __main__ - INFO - Cliente mestre conectado: amevotsti013
+2025-05-28 15:57:29,681 - __main__ - INFO - Nova conexão de ('172.19.200.1', 53888)
+2025-05-28 15:57:29,683 - __main__ - INFO - Mensagem recebida de ('172.19.200.1', 53888): amevotsti013
+2025-05-28 15:57:29,685 - __main__ - INFO - Cliente mestre conectado: amevotsti013
+2025-05-28 15:57:38,870 - __main__ - INFO - Nova conexão de ('172.19.200.1', 53895)
+2025-05-28 15:57:38,872 - __main__ - INFO - Mensagem recebida de ('172.19.200.1', 53895): Backup|codigo violeta!|Administrator
+2025-05-28 15:57:38,956 - database.database_manager - INFO - Log salvo: Backup - sala de Backup - Administrator
+2025-05-28 15:57:38,957 - __main__ - INFO - Alerta processado: Backup - sala de Backup - Administrator
+2025-05-28 15:57:38,958 - __main__ - INFO - Comando enviado para cliente mestre amevotsti013
+2025-05-28 15:58:29,777 - __main__ - INFO - Cliente mestre amevotsti013 desconectado: [WinError 10053] Uma conexão estabelecida foi anulada pelo software no computador host
+2025-05-28 15:59:35,486 - __main__ - INFO - Nova conexão de ('172.19.200.1', 54010)
+2025-05-28 15:59:35,488 - __main__ - INFO - Mensagem recebida de ('172.19.200.1', 54010): Backup|codigo violeta!|Administrator
+2025-05-28 15:59:35,494 - database.database_manager - INFO - Log salvo: Backup - sala de Backup - Administrator
+2025-05-28 15:59:35,496 - __main__ - INFO - Alerta processado: Backup - sala de Backup - Administrator
+2025-05-28 16:00:44,658 - __main__ - INFO - Nova conexão de ('172.19.200.1', 54101)
+2025-05-28 16:00:44,660 - __main__ - INFO - Mensagem recebida de ('172.19.200.1', 54101): Backup|codigo violeta!|Administrator
+2025-05-28 16:00:44,739 - database.database_manager - INFO - Log salvo: Backup - sala de Backup - Administrator
+2025-05-28 16:00:44,747 - __main__ - INFO - Alerta processado: Backup - sala de Backup - Administrator
+2025-05-28 16:02:27,902 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 16:07:27,917 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 16:12:27,934 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 16:17:27,951 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 16:22:27,968 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 16:27:27,983 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 16:32:28,027 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres
+2025-05-28 16:37:28,052 - __main__ - INFO - Cache atualizado: 102 salas, 4 clientes mestres

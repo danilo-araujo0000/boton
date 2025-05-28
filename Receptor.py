@@ -267,7 +267,7 @@ def conectar_ao_serv():
         print("CONECTANDO...")
         try:
             client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            client_socket.connect(('172.16.222.76', 13579))
+            client_socket.connect(('172.19.200.1', 13579))
             
             hostname = socket.gethostname()
             client_socket.send(hostname.encode('utf-8'))

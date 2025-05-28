@@ -33,7 +33,6 @@ class Tela:
                                     font=texto_fonte, fg="white", bg="#B22222", justify="center")
         self.texto_aviso.pack(pady=(0, 10))
 
-        # Modificando o Label para o nome da sala
         self.texto_sala = tk.Label(self.frame, text=f"{sala.upper()}", 
                                    font=sala_fonte, fg="#000000", bg="#B22222", justify="center")
         self.texto_sala.pack(pady=(0, 30))
@@ -43,11 +42,10 @@ class Tela:
                                            font=self.nome_usuario_fonte, fg="white", bg="#B22222")
         self.nome_usuario_label.pack(pady=(0, 5))
  
-        #  frame para o botão
         botao_frame = tk.Frame(self.frame, bg="#B22222")
         botao_frame.pack(side="bottom", pady=(0, 50))
 
-        # Criando o botão retangular
+      
         self.botao = tk.Button(botao_frame, text="FECHAR", font=botao_fonte,
                                bg="#c2c2c2", fg="white", activebackground="#000",
                                activeforeground="white", relief=tk.FLAT,
