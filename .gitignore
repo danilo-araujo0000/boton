@@ -1,0 +1,14 @@
+./build
+./dist
+./venv
+./logs
+./logs/*
+./logs/.gitkeep
+./__pycache__
+/__pycache__/*
+/__pycache__/.gitkeep
+./*.pyc
+./*.pyo
+./*.pyd
+/botao-do-panico/
+/botao-do-panico/*
