@@ -1,14 +1,34 @@
-flask==2.3.3
-flask-sqlalchemy==3.0.5
+# Flask e extensões
+Flask==2.3.3
+Flask-SQLAlchemy==3.1.1
+Flask-Login==0.6.2
+Flask-WTF==1.1.1
+WTForms==3.0.1
+Werkzeug==2.3.7
+
+# Banco de dados
+SQLAlchemy==2.0.20
+PyMySQL==1.1.0
 mysql-connector-python==8.1.0
-pymysql==1.1.0
-pygame==2.5.2
-websockets==11.0.3
-asyncio-mqtt==0.13.0
+
+# Ambiente e configuração
 python-dotenv==1.0.0
+
+# Segurança
 cryptography==41.0.4
 bcrypt==4.0.1
-flask-wtf==1.1.1
-wtforms==3.0.1
-flask-login==0.6.3
-requests==2.31.0 
+
+# Interface gráfica
+keyboard==0.13.5
+
+# Rede e comunicação
+websockets==11.0.3
+asyncio-mqtt==0.13.0
+requests==2.31.0
+
+# Multimédia
+pygame==2.5.2  # Para reprodução de som
+
+# Nota: bibliotecas padrão não precisam ser instaladas:
+# - tkinter (incluído na maioria das instalações Python)
+# - socket, threading, datetime, argparse, json, logging, winsound 

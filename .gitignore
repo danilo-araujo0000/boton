@@ -1,17 +1,74 @@
-./build
-./dist
-./venv
-./logs
-./logs/*
-./logs/.gitkeep
-./__pycache__
-/__pycache__/*
-/__pycache__/.gitkeep
-./*.pyc
-./*.pyo
-./*.pyd
-/botao-do-panico/
-/botao-do-panico/*
-./lixo/
-/lixo/*
-/lixo/.gitkeep
+# Arquivos e diretórios específicos do Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+lixo/
+
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Ambientes virtuais
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Ambientes de desenvolvimento
+.env
+.venv
+env/
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Arquivos de log e dados
+logs_data/*.log
+*.log
+*.sqlite
+*.db
+
+# Arquivos específicos do sistema
+env_config/env_settings.env
+env_config/cliente_config.json
+
+# Arquivos de build e compilação
+*.spec
+build/
+dist/
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Outros
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+.nox/
+.hypothesis/
+.coverage.*
+coverage.xml
+*.cover

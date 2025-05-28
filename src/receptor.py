@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+"""
+Receptor de Alertas do Sistema de Botão de Pânico
+Recebe e apresenta alertas enviados pelo servidor
+"""
 
 import socket
 import threading
@@ -12,22 +16,25 @@ import os
 import sys
 import argparse
 from datetime import datetime
-from config_teste import Config
 import winsound
 import subprocess
+from src.config import Config
 
 # Configuração de logging
+LOG_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'logs_data')
+os.makedirs(LOG_DIR, exist_ok=True)
+
 logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    level=getattr(logging, Config().LOG_LEVEL),
+    format=Config().LOG_FORMAT,
     handlers=[
-        logging.FileHandler('receptor.log'),
+        logging.FileHandler(os.path.join(LOG_DIR, 'receptor.log')),
         logging.StreamHandler()
     ]
 )
-logger = logging.getLogger(__name__)
+logger = logging.getLogger("receptor")
 
-class ReceptorMelhorado:
+class ReceptorAlerta:
     def __init__(self, modo_gui=True):
         self.config = Config()
         self.running = False
@@ -518,7 +525,7 @@ def main():
         
         if modo_gui:
             # Modo GUI
-            receptor = ReceptorMelhorado(modo_gui=True)
+            receptor = ReceptorAlerta(modo_gui=True)
             receptor.run()
         else:
             # Modo terminal
@@ -527,7 +534,7 @@ def main():
             print(f"Servidor: {Config().WEBSOCKET_HOST}:{Config().WEBSOCKET_PORT}")
             print("Iniciando conexão...")
             
-            receptor = ReceptorMelhorado(modo_gui=False)
+            receptor = ReceptorAlerta(modo_gui=False)
             # Iniciar conexão automaticamente
             receptor.running = True
             receptor.thread_conexao = threading.Thread(target=receptor.thread_conexao_servidor, daemon=True)

@@ -4,7 +4,7 @@ import win32event
 import servicemanager
 import socket
 import threading
-from servidor import main  # Importa a função principal do servidor
+from lixo.servidor import main  # Importa a função principal do servidor
 
 class ServidorServico(win32serviceutil.ServiceFramework):
     _svc_name_ = "Servidor violeta"
