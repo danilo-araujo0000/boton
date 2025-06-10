@@ -5,7 +5,8 @@ create table logs_alertas (
     nome_usuario varchar(255) not null,
     nome_sala varchar(255) not null,
     data_hora datetime not null,
-    status varchar(255) not null
+    status varchar(255) not null,
+    id_evento varchar(255) not null
 );
 
 create table usuarios (
@@ -28,3 +29,8 @@ create table receptores (
 );
 
 
+create table logs_sitema (
+    id int auto_increment primary key,
+    log varchar(255) not null,
+    data_hora datetime not null
+);

@@ -16,7 +16,14 @@ chave = "alerta5656"
 def enviar_mensagem():
     hostname = socket.gethostname()
     usuario_windows = getpass.getuser()
-    mensagem =  f"{{'hostname': '{hostname}' , 'usuario': '{usuario_windows}' , 'codigo': 'alerta5656' }}"
+    
+    mensagem = {
+        'hostname': hostname,
+        'usuario': usuario_windows,
+        'codigo': 'alerta5656'
+    }
+    
+    print(f"Enviando mensagem: {mensagem}")
 
     try:
         response = requests.post(f"http://localhost:9600/{chave}/enviar", json=mensagem)
@@ -24,18 +31,19 @@ def enviar_mensagem():
             print("Mensagem enviada com sucesso")
         else:
             print(f"Erro ao enviar mensagem: {response.status_code}")
+            print(f"Resposta do servidor: {response.text}")
     except Exception as e:
         print(f"Erro ao enviar mensagem: {e}")
 
 
 def mostrar_tela_enviado():
     root = tk.Tk()
-    root.overrideredirect(True)  # Remove a barra de título
+    root.overrideredirect(True)  
     root.geometry("300x200+{}+{}".format(
         int(root.winfo_screenwidth()/2 - 150),
         int(root.winfo_screenheight()/2 - 100)
     ))
-    root.configure(bg='#ffffff')  # Cor de fundo azul claro
+    root.configure(bg='#ffffff') 
 
     frame = tk.Frame(root, bg='#ffffff')
     frame.place(relx=0.5, rely=0.5, anchor='center')
@@ -50,7 +58,7 @@ def mostrar_tela_enviado():
     def fechar_janela():
         root.destroy()
 
-    root.after(3000, fechar_janela)  # Fecha a janela após 3 segundos
+    root.after(3000, fechar_janela)  
     root.mainloop()
 
 if __name__ == "__main__":

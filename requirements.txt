@@ -5,14 +5,12 @@ Flask-WTF==1.1.1
 WTForms==3.0.1
 Werkzeug==2.3.7
 
-# Banco de dados
 PyMySQL==1.1.0
 mysql-connector-python==8.1.0
 
 python-dotenv==1.0.0
 
 
-# Rede e comunicação
 websockets==11.0.3
 requests==2.31.0
-pygame==2.5.2  # Para reprodução de som
+pygame==2.5.2  

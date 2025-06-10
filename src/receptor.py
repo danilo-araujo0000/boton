@@ -49,17 +49,14 @@ def receber_mensagem():
     return jsonify({"message": "Erro ao processar mensagem"}), 400
 
 def processar_alertas():
-    """Processa alertas da fila em uma thread separada"""
     global thread_gui_ativa
     thread_gui_ativa = True
     
     while True:
         try:
-            # Pega o próximo alerta da fila (bloqueia se vazia)
             sala, usuario = fila_alertas.get(timeout=1)
             abrir_tela(sala, usuario)
         except queue.Empty:
-            # Se não há alertas por 1 segundo, continua verificando
             continue
         except Exception as e:
             print(f"Erro ao processar alerta: {e}")
@@ -85,6 +82,7 @@ class Tela:
         icone_fonte = tkfont.Font(family="Arial", size=120, weight="bold")
         texto_fonte = tkfont.Font(family="Arial", size=48, weight="bold")
         sala_fonte = tkfont.Font(family="Helvetica", size=52, weight="bold")
+        local_fonte = tkfont.Font(family="Helvetica", size=45, weight="bold")
         
         self.frame = tk.Frame(self.master, bg="#B22222")
         self.frame.pack(expand=True, fill="both")
@@ -96,8 +94,8 @@ class Tela:
                                     font=texto_fonte, fg="white", bg="#B22222", justify="center")
         self.texto_aviso.pack(pady=(0, 10))
 
-        self.texto_sala = tk.Label(self.frame, text=f"{sala.upper()}", 
-                                   font=sala_fonte, fg="#000000", bg="#B22222", justify="center")
+        self.texto_sala = tk.Label(self.frame, text=f"LOCAL:  {sala.upper()} ", 
+                                   font=local_fonte, fg="#000000", bg="#B22222", anchor="w")
         self.texto_sala.pack(pady=(0, 30))
         
         self.nome_usuario_fonte = tkfont.Font(family="Arial", size=36, weight="bold")
