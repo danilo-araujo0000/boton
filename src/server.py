@@ -9,7 +9,13 @@ from flask import Flask, request, jsonify
 import mysql.connector
 import requests
 import threading
+import dotenv
+import os
 
+dotenv.load_dotenv()
+database_host = os.getenv('DATABASE_HOST')
+database_user = os.getenv('DATABASE_USER')
+database_password = os.getenv('DATABASE_PASSWORD')
 
 app = Flask(__name__)
 
@@ -65,9 +71,9 @@ def enviar_alerta(nome_usuario, nome_sala):
 def conectar_banco_de_dados():
     try:
         conn = mysql.connector.connect(
-            host='172.19.0.76',
-            user='apps',
-            password='996639078',
+            host=database_host,
+            user=database_user,
+            password=database_password,
             database='botao_panico'
         )
         return conn
