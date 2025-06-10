@@ -26,7 +26,6 @@ def main():
     
     args = parser.parse_args()
     
-    # Adicionar pasta do projeto ao path
     sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
     
     # Executar o componente selecionado
@@ -39,7 +38,6 @@ def main():
             servidor.iniciar()
             
         elif args.comando == 'app':
-            # Iniciar aplicação web de administração
             from src.app import app
             print("Iniciando Aplicação de Administração...")
             

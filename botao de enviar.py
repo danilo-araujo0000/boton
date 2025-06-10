@@ -1,28 +1,32 @@
-import socket
+import requests
 import time
 import os
 import getpass
 import tkinter as tk
+import json
+import socket
+
+
+
+
+server = "localhost"
+chave = "alerta5656"
+
 
 def enviar_mensagem():
+    hostname = socket.gethostname()
+    usuario_windows = getpass.getuser()
+    mensagem =  f"{{'hostname': '{hostname}' , 'usuario': '{usuario_windows}' , 'codigo': 'alerta5656' }}"
+
     try:
-        client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        client_socket.connect(('172.19.200.1', 13579))
-        
-        hostname = socket.gethostname()
-        usuario_windows = getpass.getuser()
-        mensagem = f"{hostname}|codigo violeta!|{usuario_windows}"
-        client_socket.send(mensagem.encode('utf-8'))
-        print(f"Mensagem enviada: {mensagem}")
-        
-        # Espera por uma resposta do servidor (opcional)
-        resposta = client_socket.recv(1024).decode('utf-8')
-        print(f"Resposta do servidor: {resposta}")
-        
+        response = requests.post(f"http://localhost:9600/{chave}/enviar", json=mensagem)
+        if response.status_code == 200:
+            print("Mensagem enviada com sucesso")
+        else:
+            print(f"Erro ao enviar mensagem: {response.status_code}")
     except Exception as e:
         print(f"Erro ao enviar mensagem: {e}")
-    finally:
-        client_socket.close()
+
 
 def mostrar_tela_enviado():
     root = tk.Tk()
@@ -50,5 +54,5 @@ def mostrar_tela_enviado():
     root.mainloop()
 
 if __name__ == "__main__":
-    enviar_mensagem()
-    mostrar_tela_enviado()
+     enviar_mensagem()
+     mostrar_tela_enviado()
