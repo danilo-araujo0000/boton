@@ -1,9 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Servidor principal do sistema de Botão de Pânico
-Gerencia conexões com clientes e encaminha alertas
-"""
 from datetime import datetime
 import random
 import string
@@ -67,6 +62,9 @@ def receber_acao():
     salvar_logs_sitema(f"Ação recebida com sucesso por {request_ip} para o usuário {nome_usuario} na sala {nome_sala}")
     return jsonify({"message": "Ação recebida com sucesso"}), 200
 
+@app.route('/check-health', methods=['GET'])
+def check_health():
+    return jsonify({"status": "ok"}), 200
 
 def enviar_alerta(nome_usuario, nome_sala):
     salvar_logs_sitema(f"Enviando alerta do usuário {nome_usuario} da sala {nome_sala} - {id_evento}")
@@ -101,35 +99,48 @@ def enviar_alerta(nome_usuario, nome_sala):
 
 
 def enviar_para_receptor(ip_receptor, nome_usuario, nome_sala):
-    global hostname_chamador
+    hostname_chamador = hostname
+    data_hora = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    status = "Erro"
+    
     try:
         print(f"Enviando para receptor: {ip_receptor}")
         
         response = requests.post(
             f"http://{ip_receptor}:9090/alerta5656/enviar", 
             json={"sala": nome_sala, "usuario": nome_usuario, "codigo": "alerta5656"},
-            timeout=10
+            timeout=4
         )
+        
+        print(f"Resposta do receptor {ip_receptor}: {response.status_code}")
+        
         if response.status_code == 200:
             status = "Enviado"
             print(f"✓ Alerta enviado com sucesso para o receptor {ip_receptor}")
             salvar_logs_sitema(f"Alerta enviado com sucesso para o receptor {ip_receptor}")
         else:
-            status = "Erro_conexao"
+            status = "Erro_HTTP"
             print(f"✗ Erro ao enviar alerta para o receptor {ip_receptor} - Status: {response.status_code}")
             salvar_logs_sitema(f"Erro ao enviar alerta para o receptor {ip_receptor} - Status: {response.status_code}")
-            salvar_log_alertas(ip_receptor, hostname_chamador, nome_usuario, nome_sala, data_hora, status , id_evento)
-        hostname_chamador = hostname
-        data_hora = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        salvar_log_alertas(ip_receptor, hostname_chamador, nome_usuario, nome_sala, data_hora, status , id_evento)
+            
+    except requests.exceptions.ConnectTimeout:
+        status = "Timeout"
+        print(f"✗ Timeout ao enviar para receptor {ip_receptor}")
+        salvar_logs_sitema(f"Timeout ao enviar para receptor {ip_receptor}")
+        
+    except requests.exceptions.ConnectionError:
+        status = "Erro_Conexao"
+        print(f"✗ Erro de conexão com receptor {ip_receptor}")
+        salvar_logs_sitema(f"Erro de conexão com receptor {ip_receptor}")
+        
     except Exception as e:
-        status = "Erro"
-        salvar_logs_sitema(f"Erro ao enviar alerta para o receptor {ip_receptor}: {e}")
-        salvar_log_alertas(ip_receptor, hostname_chamador, nome_usuario, nome_sala, data_hora, status , id_evento)
+        status = "Erro_Geral"
+        print(f"✗ Erro inesperado ao enviar para receptor {ip_receptor}: {e}")
+        salvar_logs_sitema(f"Erro inesperado ao enviar para receptor {ip_receptor}: {e}")
+    
+    salvar_log_alertas(ip_receptor, hostname_chamador, nome_usuario, nome_sala, data_hora, status, id_evento)
 
-#############################
-# Funções de banco de dados #
-#############################
+
 
 def conectar_banco_de_dados():
     try:

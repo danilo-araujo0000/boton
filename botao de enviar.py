@@ -16,6 +16,7 @@ chave = "alerta5656"
 def enviar_mensagem():
     hostname = socket.gethostname()
     usuario_windows = getpass.getuser()
+    mostrar_tela_enviado()
     
     mensagem = {
         'hostname': hostname,
@@ -25,15 +26,9 @@ def enviar_mensagem():
     
     print(f"Enviando mensagem: {mensagem}")
 
-    try:
-        response = requests.post(f"http://localhost:9600/{chave}/enviar", json=mensagem)
-        if response.status_code == 200:
-            print("Mensagem enviada com sucesso")
-        else:
-            print(f"Erro ao enviar mensagem: {response.status_code}")
-            print(f"Resposta do servidor: {response.text}")
-    except Exception as e:
-        print(f"Erro ao enviar mensagem: {e}")
+  
+    requests.post(f"http://172.19.200.1:9600/{chave}/enviar", json=mensagem)
+      
 
 
 def mostrar_tela_enviado():
@@ -51,16 +46,15 @@ def mostrar_tela_enviado():
     label = tk.Label(frame, text="enviada!", font=("Arial", 16, "bold"), bg='#ffffff', fg='#2ecc71')
     label.pack()
 
-    # Ícone de confirmação
     check = tk.Label(frame, text="✓", font=("Arial", 48), bg='#ffffff', fg='#2ecc71')
     check.pack(pady=10)
 
     def fechar_janela():
         root.destroy()
 
-    root.after(3000, fechar_janela)  
+    root.after(2000, fechar_janela)
     root.mainloop()
 
 if __name__ == "__main__":
      enviar_mensagem()
-     mostrar_tela_enviado()
+     

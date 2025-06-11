@@ -1,9 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Receptor de Alertas do Sistema de Botão de Pânico
-Recebe e apresenta alertas enviados pelo servidor
-"""
 
 import threading
 import time
@@ -22,26 +17,28 @@ import requests
 app = Flask(__name__)
 
 chave = 'alerta5656'
-
-# Fila para gerenciar alertas
 fila_alertas = queue.Queue()
 thread_gui_ativa = False
 
+@app.route('/check-health', methods=['GET'])
+def check_health():
+    return jsonify({"status": "ok"}), 200
+
 @app.route(f'/{chave}/enviar', methods=['POST'])
 def receber_mensagem():
+    
     try:
         data = request.json
         if data['codigo'] == chave:
             # Adiciona o alerta na fila
             fila_alertas.put((data['sala'], data['usuario']))
             
-            # Inicia thread da GUI se não estiver ativa
             global thread_gui_ativa
             if not thread_gui_ativa:
                 thread_gui = threading.Thread(target=processar_alertas, daemon=True)
                 thread_gui.start()
             
-            return jsonify({"message": "Mensagem recebida com sucesso"}), 200
+            return jsonify(True), 200
         else:
             print("Chave inválida")
     except Exception as e:
